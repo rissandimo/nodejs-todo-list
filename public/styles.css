@@ -75,11 +75,15 @@ footer{
     text-align: center;
 }
 
+.todo__link{
+    cursor: pointer;
+}
+
 .todos{
     position: relative;
-    text-align: center;
 }
 
 .todos > .heading{
     margin-bottom: 2rem;
+    text-align: center;
 }

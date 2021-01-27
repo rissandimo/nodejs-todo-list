@@ -35,6 +35,19 @@ app.get('/create-task', (req, res) => {
     res.render('create-task', {title: 'Create New Task'});
 })
 
+// Display specific blog
+app.get('/:id', (req, res) => {
+    const idToFind = req.params.id;
+
+    console.log('display blog - ', idToFind);
+
+    Todo.findById(idToFind)
+    .then(result => {
+        res.render('details', { title: 'Details', todo: result });
+    })
+    .catch(error => console.log(error))
+})
+
                                                                             // Blog Routes
 
 // Create Todo                                                                            
@@ -53,4 +66,12 @@ app.post('/todos', (req, res) => {
         res.redirect('/');
     })
     .catch(() => console.log(error => console.log(error)))
+})
+
+// Delete specific todo
+app.delete('/blogs/:id', (req, res) => {
+    const idToDelete = req.params.id;
+    Todo.findByIdAndDelete(idToDelete)
+    .then(() => res.json({ redirect: '/'}))
+    .catch(error => console.log(error))
 })

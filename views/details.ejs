@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %> 
+<body>
+    <%- include('./partials/navbar.ejs') %>
+    
+    <div class="details">
+        <h2><%= todo.title %> </h2>
+        <p><%= todo.description %> </p>
+        <a class="delete" data-doc="<%= todo._id %>">Delete</a>
+    </div>
+</body>
+</html>
