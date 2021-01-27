@@ -1,3 +1,23 @@
+a,
+a:active{
+    color: white;
+    text-decoration: none;
+}
+
 body{
     background: #004e92;
+    color: white;
+}
+
+nav{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li{
+    display: inline;
+    list-style: none;
+    padding: 0 0.5rem;
 }
