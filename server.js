@@ -16,37 +16,28 @@ const mongooseURI = 'mongodb+srv://rissandimo:q7iASCVlmTIsCq1R@cluster0.5y4lz.mo
 mongoose.connect(mongooseURI, { useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => {
     console.log('Connected to DB');
-    
     app.listen(3000);
-    console.log('Listening for incoming requests');
 }).catch(error => console.log(error));
 
 
-// App Routes
+                                                                            // App Routes
+
+// Home Page - All todos 
 app.get('/', (req, res) => {
-    const todos = [
-        // {title: 'First Todo', description: 'This is the first description'},
-        // {title: 'Second Todo', description: 'This is the second description'},
-        // {title: 'Third Todo', description: 'This is the third description'},
-    ]
-    res.render('index', {title: 'All Todos', todos});
+    Todo.find()
+    .then(result => {
+        res.render('index', {title: 'All Todos', todos: result});
+    })
 })
 
-app.get('/add-todo', (req, res) => {
-    const todo = new Todo({
-        title: 'New Hard Coded Todo',
-        description: 'Some hard coded description'
-    });
-
-    todo.save().then((result) => res.send(result))
-    .catch(error => console.log(error));
-})
-
+// Display new task form
 app.get('/create-task', (req, res) => {
     res.render('create-task', {title: 'Create New Task'});
 })
 
-// Blog Routes
+                                                                            // Blog Routes
+
+// Create Todo                                                                            
 app.post('/todos', (req, res) => {
 
     console.log('Post request inititated');
