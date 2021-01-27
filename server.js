@@ -69,7 +69,7 @@ app.post('/todos', (req, res) => {
 })
 
 // Delete specific todo
-app.delete('/blogs/:id', (req, res) => {
+app.delete('/todos/:id', (req, res) => {
     const idToDelete = req.params.id;
     Todo.findByIdAndDelete(idToDelete)
     .then(() => res.json({ redirect: '/'}))

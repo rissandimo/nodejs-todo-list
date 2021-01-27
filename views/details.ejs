@@ -7,7 +7,21 @@
     <div class="details">
         <h2><%= todo.title %> </h2>
         <p><%= todo.description %> </p>
-        <a class="delete" data-doc="<%= todo._id %>">Delete</a>
+        <a class="todo__link delete" data-doc="<%= todo._id %>">Delete</a>
     </div>
+
+    <!-- Delete Todo -->
+    <script>
+        const deleteTodo = document.querySelector('a.delete');
+        deleteTodo.addEventListener('click', () => {
+            const deleteUrl = `/todos/${deleteTodo.dataset.doc}`;
+            fetch(deleteUrl,{
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => window.location.href = data.redirect)
+            .catch(error => console.log(error));
+        })
+    </script>
 </body>
 </html>
