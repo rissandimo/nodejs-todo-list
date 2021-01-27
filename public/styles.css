@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 a,
 a:active{
     color: white;
@@ -7,13 +14,54 @@ a:active{
 body{
     background: #004e92;
     color: white;
+    font-family: 'Noto Serif', serif;
+    margin: 20px auto;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+
+.create-task > form{
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.create-task input,
+.create-task textarea{
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+}
+
+input:focus,
+textarea:focus{
+    outline: none;
+}
+
+.create-task button{
+    background-color: #000428;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 1.2rem;
+    margin: 20px auto 0 auto;
+    padding: 6px;
+    width: 70%;
+}
+
+textarea{
+    height: 120px;
 }
 
 nav{
-    /* border: 1px solid black; */
+    align-items: center;
+    border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 5rem;
+    padding-bottom: 0.8rem;
+    text-transform: uppercase;
 }
 
 ul li{

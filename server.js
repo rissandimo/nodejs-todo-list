@@ -10,6 +10,6 @@ app.get('/', (req, res) => {
     res.render('index', {title: 'All Todos'});
 })
 
-app.get('/todos/create-task', (req, res) => {
+app.get('/create-task', (req, res) => {
     res.render('create-task', {title: 'Create New Task'});
 })
