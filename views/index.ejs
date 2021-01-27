@@ -4,7 +4,15 @@
 
 <body>
     <%- include('./partials/navbar.ejs') %> 
-    <p>This is the home page</p>
+    <h2>All Todos</h2>
+    <% if(todos.length > 0) { %>
+        <% todos.forEach(todo => { %>
+            <h3><%= todo.title %> </h3>
+            <p><%= todo.description %> </p>
+       <% }) %>
+       <% } else { %> 
+        <h3>There are no todos to display</h3>
+        <% } %> 
 
 <%- include('./partials/footer.ejs') %>
 

@@ -69,3 +69,8 @@ ul li{
     list-style: none;
     padding: 0 0.5rem;
 }
+
+footer{
+    margin-top: 2rem;
+    text-align: center;
+}
