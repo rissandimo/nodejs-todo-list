@@ -4,15 +4,17 @@
 
 <body>
     <%- include('./partials/navbar.ejs') %> 
-    <h2>All Todos</h2>
-    <% if(todos.length > 0) { %>
-        <% todos.forEach(todo => { %>
-            <h3><%= todo.title %> </h3>
-            <p><%= todo.description %> </p>
-       <% }) %>
-       <% } else { %> 
-        <h3>There are no todos to display</h3>
-        <% } %> 
+    <div class="todos">
+        <% if(todos.length > 0) { %>
+            <h2 class="heading">All Todos</h2>
+            <% todos.forEach(todo => { %>
+                <h4><%= todo.title %> </h4>
+                <p><%= todo.description %> </p>
+           <% }) %>
+           <% } else { %> 
+            <h3>There are no todos to display</h3>
+            <% } %> 
+    </div>
 
 <%- include('./partials/footer.ejs') %>
 

@@ -4,7 +4,7 @@
 <body>
     <%- include('./partials/navbar.ejs') %> 
     <div class="create-task">
-        <form action="">
+        <form action="/todos" method="POST">
             <label for="title">Todo Title</label>
             <input type="text" name="title" id="title" required>
             <label for="description">Todo Description</label>

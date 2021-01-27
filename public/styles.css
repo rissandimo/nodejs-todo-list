@@ -74,3 +74,12 @@ footer{
     margin-top: 2rem;
     text-align: center;
 }
+
+.todos{
+    position: relative;
+    text-align: center;
+}
+
+.todos > .heading{
+    margin-bottom: 2rem;
+}
