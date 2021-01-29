@@ -17,13 +17,13 @@
         const deleteTodo = document.querySelector('a.delete');
         deleteTodo.addEventListener('click', () => {
             console.log('delete button clicked');
-            // const deleteUrl = `/todos/${deleteTodo.dataset.doc}`;
-            // fetch(deleteUrl,{
-            //     method: 'DELETE'
-            // })
-            // .then(response => response.json())
-            // .then(data => window.location.href = data.redirect)
-            // .catch(error => console.log(error));
+            const deleteUrl = `/todos/${deleteTodo.dataset.doc}`;
+            fetch(deleteUrl,{
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => window.location.href = data.redirect)
+            .catch(error => console.log(error));
         });
 
         // // Edit Todo

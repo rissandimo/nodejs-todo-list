@@ -30,11 +30,6 @@ app.get('/', (req, res) => {
     })
 })
 
-// Display new task form
-app.get('/create-task', (req, res) => {
-    res.render('create-task', {title: 'Create New Task'});
-})
-
 // Display specific blog - details
 app.get('/:id', (req, res) => {
     const idToFind = req.params.id;
@@ -46,21 +41,29 @@ app.get('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+
+
 // Edit specific todo
 app.get('/update/:id', (req, res) => {
 
     console.log('server - edit todo request');
-    // // Get todo id
-    // const idToEdit = req.params.id;
+    // Get todo id
+    const idToEdit = req.params.id;
 
-    // // Retrieve todo from DB
-    // Todo.findById(idToEdit)
-    // .then(result => {
-    //     res.render('edit', {title: 'Edit Todo', blog: result})
-    // })
-    // .catch(error => console.log(error))
+    // Retrieve todo from DB
+    Todo.findById(idToEdit)
+    .then(result => {
+        // console.log('Todo found', result);
+        res.render('edit', { title: 'update', todo: result});
+    })
+    .catch(error => console.log(error))
 })
 
+
+// Display new task form
+app.get('/create-task', (req, res) => {
+    res.render('create-task', {title: 'Create New Task'});
+})
 
 
                                                                             // Blog Routes
