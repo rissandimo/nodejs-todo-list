@@ -45,8 +45,7 @@ app.get('/:id', (req, res) => {
 
 // Edit specific todo
 app.get('/update/:id', (req, res) => {
-
-    console.log('server - edit todo request');
+    
     // Get todo id
     const idToEdit = req.params.id;
 
