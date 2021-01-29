@@ -78,6 +78,11 @@ textarea:focus{
     width: 70%;
 }
 
+.header{
+    margin: 2rem auto;
+    text-align: center;
+}
+
 textarea{
     height: 120px;
 }
