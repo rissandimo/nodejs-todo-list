@@ -7,21 +7,35 @@
     <div class="details">
         <h2><%= todo.title %> </h2>
         <p><%= todo.description %> </p>
+        <a class="todo__link" href="/update/<%= todo._id %> ">Edit</a>
         <a class="todo__link delete" data-doc="<%= todo._id %>">Delete</a>
     </div>
 
-    <!-- Delete Todo -->
     <script>
+
+        // Delete Todo
         const deleteTodo = document.querySelector('a.delete');
         deleteTodo.addEventListener('click', () => {
-            const deleteUrl = `/todos/${deleteTodo.dataset.doc}`;
-            fetch(deleteUrl,{
-                method: 'DELETE'
-            })
-            .then(response => response.json())
-            .then(data => window.location.href = data.redirect)
-            .catch(error => console.log(error));
-        })
+            console.log('delete button clicked');
+            // const deleteUrl = `/todos/${deleteTodo.dataset.doc}`;
+            // fetch(deleteUrl,{
+            //     method: 'DELETE'
+            // })
+            // .then(response => response.json())
+            // .then(data => window.location.href = data.redirect)
+            // .catch(error => console.log(error));
+        });
+
+        // // Edit Todo
+        // const editTodo = document.querySelector('a.edit');
+        // editTodo.addEventListener('click', (req, res) => {
+        //     console.log('edit button clicked');
+        //     const editUrl = `/todos/${editTodo.dataset.doc}`;
+        //     fetch(editUrl, {
+        //         method: 'PUT'
+        //     })
+            
+        // })
     </script>
 </body>
 </html>

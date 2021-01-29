@@ -35,11 +35,9 @@ app.get('/create-task', (req, res) => {
     res.render('create-task', {title: 'Create New Task'});
 })
 
-// Display specific blog
+// Display specific blog - details
 app.get('/:id', (req, res) => {
     const idToFind = req.params.id;
-
-    console.log('display blog - ', idToFind);
 
     Todo.findById(idToFind)
     .then(result => {
@@ -47,6 +45,23 @@ app.get('/:id', (req, res) => {
     })
     .catch(error => console.log(error))
 })
+
+// Edit specific todo
+app.get('/update/:id', (req, res) => {
+
+    console.log('server - edit todo request');
+    // // Get todo id
+    // const idToEdit = req.params.id;
+
+    // // Retrieve todo from DB
+    // Todo.findById(idToEdit)
+    // .then(result => {
+    //     res.render('edit', {title: 'Edit Todo', blog: result})
+    // })
+    // .catch(error => console.log(error))
+})
+
+
 
                                                                             // Blog Routes
 
@@ -58,7 +73,7 @@ app.post('/todos', (req, res) => {
     // Create new todo object
     const todo = new Todo(req.body);
 
-    // Save blog to MongoDB
+    // Save todo to MongoDB
     todo.save()
     .then(() => {
         console.log('Todo saved to DB');

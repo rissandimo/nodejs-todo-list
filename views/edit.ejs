@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %> 
+<body>
+    <%- include('./partials/navbar.ejs') %>
+    
+    <form>
+        <label for="title">Title: </label>
+        <input type="text" name="title" placeholder=`${blog.title}`>
+        <label for="description">Description: </label>
+        <input type="text" name="description" placeholder=`${blog.description}`>
+    </form>
+</body>
+</html>
