@@ -48,6 +48,18 @@ body{
     width: 12%;
 }
 
+.create-task button{
+    background-color: #000428;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 1.2rem;
+    margin: 20px auto 0 auto;
+    padding: 6px;
+    width: 70%;
+}
+
 .create-task > form{
     margin: 0 auto;
     max-width: 500px;
@@ -61,21 +73,9 @@ body{
     width: 100%;
 }
 
-input:focus,
-textarea:focus{
-    outline: none;
-}
-
-.create-task button{
-    background-color: #000428;
-    border: none;
-    color: white;
-    cursor: pointer;
-    display: block;
-    font-size: 1.2rem;
-    margin: 20px auto 0 auto;
-    padding: 6px;
-    width: 70%;
+footer{
+    margin-top: 2rem;
+    text-align: center;
 }
 
 .header{
@@ -83,8 +83,9 @@ textarea:focus{
     text-align: center;
 }
 
-textarea{
-    height: 120px;
+input:focus,
+textarea:focus{
+    outline: none;
 }
 
 nav{
@@ -103,9 +104,10 @@ ul li{
     padding: 0 0.5rem;
 }
 
-footer{
-    margin-top: 2rem;
-    text-align: center;
+.todo{
+    border-bottom: 1px dotted #dedede;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
 }
 
 .todo__link{
@@ -119,4 +121,8 @@ footer{
 .todos > .heading{
     margin-bottom: 2rem;
     text-align: center;
+}
+
+textarea{
+    height: 120px;
 }

@@ -8,10 +8,12 @@
         <% if(todos.length > 0) { %>
             <h2 class="heading">All Todos</h2>
             <% todos.forEach(todo => { %>
-                <a class="todo__link" href="/<%= todo._id %> ">
-                <h4><%= todo.title %> </h4>
-                <p><%= todo.description %> </p>
-            </a>
+                <div class="todo">
+                    <a class="todo__link" href="/todos/<%= todo._id %> ">
+                        <h4><%= todo.title %> </h4>
+                        <p><%= todo.description %> </p>
+                    </a>
+                </div>
            <% }) %>
            <% } else { %> 
             <h3>There are no todos to display</h3>

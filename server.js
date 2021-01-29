@@ -19,11 +19,13 @@ mongoose.connect(mongooseURI, { useNewUrlParser: true, useUnifiedTopology: true}
     app.listen(3000);
 }).catch(error => console.log(error));
 
-
+app.get('/', (req, res) => {
+    res.redirect('/todos');
+})
                                                                             // App Routes
 
 // Home Page - All todos 
-app.get('/', (req, res) => {
+app.get('/todos', (req, res) => {
     Todo.find()
     .then(result => {
         res.render('index', {title: 'All Todos', todos: result});
@@ -31,12 +33,12 @@ app.get('/', (req, res) => {
 })
 
 // Display new task form
-app.get('/create-task', (req, res) => {
+app.get('/todos/create-task', (req, res) => {
     res.render('create-task', {title: 'Create New Task'});
 })
 
-// Display specific blog - details
-app.get('/:id', (req, res) => {
+// Display specific todo - details
+app.get('/todos/:id', (req, res) => {
     const idToFind = req.params.id;
 
     Todo.findById(idToFind)
@@ -46,19 +48,32 @@ app.get('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// Display edit page
+app.get('/todos/update/:id', (req, res) => {
+    const todoToDisplay = req.params.id;
+
+    Todo.findById(todoToDisplay)
+    .then(result => {
+        res.render('edit', {title: 'Edit Todo', todo: result});
+    })
+})
+
 
 
 // Edit specific todo
-app.get('/update/:id', (req, res) => {
+app.put('/todos/:id', (req, res) => {
 
     // Get todo id
     const idToEdit = req.params.id;
 
     // Retrieve todo from DB
-    Todo.findById(idToEdit)
-    .then(result => {
-        // console.log('Todo found', result);
-        res.render('edit', { title: 'update', todo: result});
+    Todo.findByIdAndUpdate(idToEdit, {
+        title: req.body.title,
+        description: req.body.description
+    })
+    .then(() => {
+        console.log('Todo updated');
+        res.redirect('/');
     })
     .catch(error => console.log(error))
 })
