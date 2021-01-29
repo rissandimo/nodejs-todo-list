@@ -20,6 +20,34 @@ body{
     max-width: 1200px;
 }
 
+.details{
+    border: 1px solid #dedede;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1rem;
+    height: 40px;
+    width: 70%;
+}
+
+.details > .content{
+    height: 100%;
+    align-items: center;
+    display: flex;
+    width: 60%;
+}
+
+.details > .content > p{
+    margin-left: 1rem;
+}
+
+.details > .links{
+    display: flex;
+    justify-content: space-around;
+    width: 12%;
+}
+
 .create-task > form{
     margin: 0 auto;
     max-width: 500px;

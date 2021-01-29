@@ -5,10 +5,13 @@
     <%- include('./partials/navbar.ejs') %>
     
     <div class="details">
-        <h2><%= todo.title %> </h2>
-        <p><%= todo.description %> </p>
-        <a class="todo__link" href="/update/<%= todo._id %> ">Edit</a>
-        <a class="todo__link delete" data-doc="<%= todo._id %>">Delete</a>
+        <div class="content">
+            <h3><%= todo.title %></h3> <p><%= todo.description %> </p>
+        </div>
+        <div class="links">
+            <a class="todo__link" href="/update/<%= todo._id %> ">Edit</a>
+            <a class="todo__link delete" data-doc="<%= todo._id %>">Delete</a>
+        </div>
     </div>
 
     <script>
