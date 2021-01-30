@@ -48,6 +48,10 @@ body{
     width: 12%;
 }
 
+.hidden {
+    display: none;
+}
+
 .create-task button{
     background-color: #000428;
     border: none;

@@ -11,6 +11,11 @@ app.use(express.static('public'));
 // Parse url data from form and put into request object 
 app.use(express.urlencoded({extended: true}));
 
+mongoose.Types.ObjectId;
+
+var methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
 
 const mongooseURI = 'mongodb+srv://rissandimo:q7iASCVlmTIsCq1R@cluster0.5y4lz.mongodb.net/todo-list?retryWrites=true&w=majority'
 mongoose.connect(mongooseURI, { useNewUrlParser: true, useUnifiedTopology: true})
@@ -40,6 +45,7 @@ app.get('/todos/create-task', (req, res) => {
 // Display specific todo - details
 app.get('/todos/:id', (req, res) => {
     const idToFind = req.params.id;
+    console.log('details page id: ', idToFind);
 
     Todo.findById(idToFind)
     .then(result => {
@@ -64,21 +70,23 @@ app.get('/todos/update/:id', (req, res) => {
 app.put('/todos/:id', (req, res) => {
 
     // Get todo id
-    const idToEdit = req.params.id;
-    console.log('id to edit', idToEdit);
-    // const todo = req.body;
-    // console.log('request info', todo);
+    // const idToEdit = req.params.id;
+    // console.log('id to edit - ', idToEdit);
 
-    // // Retrieve todo from DB
-    // Todo.findByIdAndUpdate(idToEdit, {
-    //     title: req.body.title,
-    //     description: req.body.description
-    // })
-    // .then(() => {
-    //     console.log('Todo updated');
-    //     res.redirect('/');
-    // })
-    // .catch(error => console.log(error))
+    const updatedTodo = req.body;
+    console.log('updated todo = ', updatedTodo);
+
+    const idToDelete = updatedTodo.todo_id;
+    
+    Todo.findByIdAndUpdate({_id: idToDelete}, {
+        title: updatedTodo.title,
+        description: updatedTodo.description
+    })
+    .then(() => {
+        console.log('Todo updated');
+        res.redirect('/todos')
+    })
+    .catch(error => console.log(error))    
 })
 
 
