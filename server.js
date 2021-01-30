@@ -45,13 +45,17 @@ app.get('/todos/create-task', (req, res) => {
 // Display specific todo - details
 app.get('/todos/:id', (req, res) => {
     const idToFind = req.params.id;
-    console.log('details page id: ', idToFind);
 
     Todo.findById(idToFind)
     .then(result => {
         res.render('details', { title: 'Details', todo: result });
     })
     .catch(error => console.log(error))
+})
+
+// Display 404 page
+app.use((req, res) => {
+    res.status(404).render('404');
 })
 
 // Display edit page
@@ -68,10 +72,6 @@ app.get('/todos/update/:id', (req, res) => {
 
 // Edit specific todo
 app.put('/todos/:id', (req, res) => {
-
-    // Get todo id
-    // const idToEdit = req.params.id;
-    // console.log('id to edit - ', idToEdit);
 
     const updatedTodo = req.body;
     console.log('updated todo = ', updatedTodo);
