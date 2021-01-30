@@ -65,17 +65,20 @@ app.put('/todos/:id', (req, res) => {
 
     // Get todo id
     const idToEdit = req.params.id;
+    console.log('id to edit', idToEdit);
+    // const todo = req.body;
+    // console.log('request info', todo);
 
-    // Retrieve todo from DB
-    Todo.findByIdAndUpdate(idToEdit, {
-        title: req.body.title,
-        description: req.body.description
-    })
-    .then(() => {
-        console.log('Todo updated');
-        res.redirect('/');
-    })
-    .catch(error => console.log(error))
+    // // Retrieve todo from DB
+    // Todo.findByIdAndUpdate(idToEdit, {
+    //     title: req.body.title,
+    //     description: req.body.description
+    // })
+    // .then(() => {
+    //     console.log('Todo updated');
+    //     res.redirect('/');
+    // })
+    // .catch(error => console.log(error))
 })
 
 

@@ -5,11 +5,29 @@
     <%- include('./partials/navbar.ejs') %>
     <a href="/todos/<%= todo._id %> ">Back to details page</a>
     <h2 class="header">Edit Todo</h2>
-    <form action="/update" method="PUT">
+    <form>
         <label for="title">Title</label>
         <input type="text" name="title" value="<%=todo.title%>" >
         <label for="description">Description: </label>
         <input type="text" name="description" value="<%= todo.description %>">
+        <a class="todo__link edit" data-doc="<%= todo._id %> ">Update todo</a>
     </form>
 </body>
+
+<script>
+    //Update todl
+    const updateTodo = document.querySelector('a.edit');
+    updateTodo.addEventListener('click', () => {
+        const updateUrl = `/todos/${updateTodo.dataset.doc}`;
+        fetch(updateUrl, {
+            method: 'PUT',
+            body: {
+                title: 'updated title',
+                description: 'updated description'
+            }
+        })
+        .then((response) => response.json())
+        .then(data => console.log(data));
+    })
+</script>
 </html>
