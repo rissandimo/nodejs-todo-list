@@ -48,10 +48,6 @@ body{
     width: 12%;
 }
 
-.hidden {
-    display: none;
-}
-
 .create-task button{
     background-color: #000428;
     border: none;
@@ -64,17 +60,25 @@ body{
     width: 70%;
 }
 
-.create-task > form{
+.create-task > form,
+.edit-task > form{
     margin: 0 auto;
     max-width: 500px;
 }
 
 .create-task input,
-.create-task textarea{
+.create-task textarea,
+.edit-task input,
+.edit-task textarea
+{
     display: block;
     margin: 10px 0;
     padding: 8px;
     width: 100%;
+}
+
+.edit-task form > .hidden {
+    display: none;
 }
 
 footer{

@@ -53,11 +53,6 @@ app.get('/todos/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// Display 404 page
-app.use((req, res) => {
-    res.status(404).render('404');
-})
-
 // Display edit page
 app.get('/todos/update/:id', (req, res) => {
     const todoToDisplay = req.params.id;
@@ -90,7 +85,6 @@ app.put('/todos/:id', (req, res) => {
 })
 
 
-
                                                                             // Todo Routes
 
 // Create Todo                                                                            
@@ -118,3 +112,8 @@ app.delete('/todos/:id', (req, res) => {
     .then(() => res.json({ redirect: '/'}))
     .catch(error => console.log(error))
 })
+
+// Display 404 page
+app.use((req, res) => {
+    res.status(404).render('404');
+});
