@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+
+<body>
+    <%- include('./partials/navbar.ejs') %> 
+    <div class="todos">
+        <% if(todos.length > 0) { %>
+            <h2 class="heading">All Todos</h2>
+            <% todos.forEach(todo => { %>
+                <div class="todo">
+                    <a class="todo__link" href="/todos/<%= todo._id %> ">
+                        <h4><%= todo.title %> </h4>
+                        <p><%= todo.description %> </p>
+                    </a>
+                </div>
+           <% }) %>
+           <% } else { %> 
+            <h3>There are no todos to display</h3>
+            <% } %> 
+    </div>
+
+<%- include('./partials/footer.ejs') %>
+
+</body>
+</html>
