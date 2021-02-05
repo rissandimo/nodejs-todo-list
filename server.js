@@ -24,7 +24,7 @@ mongoose.connect(mongooseURI, { useNewUrlParser: true, useUnifiedTopology: true}
     app.listen(3000);
 }).catch(error => console.log(error));
 
-app.get('https://nodejs-mongodb-todo-list.herokuapp.com', (req, res) => {
+app.get('/', (req, res) => {
     res.redirect('/todos');
 })
                                                                             // App Routes
