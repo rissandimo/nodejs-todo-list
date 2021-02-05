@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap'); */
 
 *{
     box-sizing: border-box;
@@ -14,28 +14,38 @@ a:active{
 body{
     background: #004e92;
     color: white;
-    font-family: 'Noto Serif', serif;
+    font-family: serif;
     margin: 20px auto;
     padding: 0 20px;
     max-width: 1200px;
 }
 
-.create-task > form{
+.details{
+    border: 1px solid #dedede;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     margin: 0 auto;
-    max-width: 500px;
+    padding: 1rem;
+    height: 40px;
+    width: 70%;
 }
 
-.create-task input,
-.create-task textarea{
-    display: block;
-    margin: 10px 0;
-    padding: 8px;
-    width: 100%;
+.details > .content{
+    height: 100%;
+    align-items: center;
+    display: flex;
+    width: 60%;
 }
 
-input:focus,
-textarea:focus{
-    outline: none;
+.details > .content > p{
+    margin-left: 1rem;
+}
+
+.details > .links{
+    display: flex;
+    justify-content: space-around;
+    width: 12%;
 }
 
 .create-task button{
@@ -50,8 +60,40 @@ textarea:focus{
     width: 70%;
 }
 
-textarea{
-    height: 120px;
+.create-task > form,
+.edit-task > form{
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.create-task input,
+.create-task textarea,
+.edit-task input,
+.edit-task textarea
+{
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+}
+
+.edit-task form > .hidden {
+    display: none;
+}
+
+footer{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.header{
+    margin: 2rem auto;
+    text-align: center;
+}
+
+input:focus,
+textarea:focus{
+    outline: none;
 }
 
 nav{
@@ -70,7 +112,25 @@ ul li{
     padding: 0 0.5rem;
 }
 
-footer{
-    margin-top: 2rem;
+.todo{
+    border-bottom: 1px dotted #dedede;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.todo__link{
+    cursor: pointer;
+}
+
+.todos{
+    position: relative;
+}
+
+.todos > .heading{
+    margin-bottom: 2rem;
     text-align: center;
+}
+
+textarea{
+    height: 120px;
 }
