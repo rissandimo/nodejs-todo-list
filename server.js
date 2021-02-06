@@ -1,3 +1,11 @@
+require('dotenv').config();
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -16,9 +24,7 @@ mongoose.Types.ObjectId;
 var methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
-
-const mongooseURI = 'mongodb+srv://rissandimo:q7iASCVlmTIsCq1R@cluster0.5y4lz.mongodb.net/todo-list?retryWrites=true&w=majority'
-mongoose.connect(mongooseURI, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGOOSE_URI, { useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => {
     console.log('Connected to DB');
     app.listen(3000);
